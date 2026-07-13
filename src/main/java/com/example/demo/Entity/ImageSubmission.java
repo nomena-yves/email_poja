@@ -1,7 +1,9 @@
 package com.example.demo.Entity;
 
 import jakarta.persistence.*;
+import java.time.Instant;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Getter
@@ -17,4 +19,5 @@ public class ImageSubmission {
   private String fileName;
 
   private String email;
+  @CreationTimestamp private Instant createdAt;
 }
