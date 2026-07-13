@@ -1,5 +1,6 @@
 package com.example.demo.endpoint.rest.controller.health;
 
+import com.example.demo.Services.HelloWorldService;
 import com.example.demo.endpoint.event.EventProducer;
 import com.example.demo.endpoint.event.model.SendEmailRequested;
 import java.util.List;
@@ -14,13 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping("/hello")
 public class WorldController {
-  private final EventProducer<SendEmailRequested> eventProducer;
+  private final HelloWorldService service;
 
   @GetMapping
   @SneakyThrows
-  public String helloWorld(@RequestParam String to) {
-    var event = SendEmailRequested.builder().to(to).build();
-    eventProducer.accept(List.of(event));
-    return "... world!";
+  public String helloWorld(@RequestParam String name) {
+    return service.uploadHelloWorldMessage(name);
   }
 }
