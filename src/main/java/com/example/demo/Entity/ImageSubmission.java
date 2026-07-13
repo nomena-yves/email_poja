@@ -1,4 +1,5 @@
 package com.example.demo.Entity;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,11 +10,11 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ImageSubmission {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    private String fileName;
+  private String fileName;
 
-    private String email;
+  private String email;
 }
